@@ -27,8 +27,12 @@
 //
 // You should NOT modify any existing code except for adding two lines of attributes.
 
+// TODO: Questions Here:extern "Rust"中，my_demo_function没有限定link_name还是能编译运行通过。
+//  这是为什么呢？按道理来说它不应该会匹配修饰过的函数名吗，
+//  但是却匹配到了使用no_mangle修饰的my_demo_function了。好奇怪呀
+
 extern "Rust" {
-    #[link_name = "my_demo_function"]
+    // #[link_name = "my_demo_function"]
     fn my_demo_function(a: u32) -> u32;
     #[link_name = "my_demo_function"]
     fn my_demo_function_alias(a: u32) -> u32;
